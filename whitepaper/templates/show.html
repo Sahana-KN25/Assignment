@@ -1,0 +1,59 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Registration Records</title>  
+     {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>First Name</th>  
+        <th>Last Name</th>  
+        <th>Work Email</th>
+        <th>Company Name</th>  
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Zip code</th>
+        <th>Phone</th>
+        <th>Company Size</th>
+        <th>Job Title</th>
+        <th>Department</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for registration in registrations %}  
+    <tr>  
+        <td>{{ registration.first_name }}</td>  
+        <td>{{ registration.last_name }}</td>  
+        <td>{{ registration.work_mail }}</td>  
+        <td>{{ registration.company_name }}</td>  
+        <td>{{ registration.address }}</td>
+        <td>{{ registration.city }}</td>
+        <td>{{ registration.state }}</td>
+        <td>{{ registration.country }}</td>
+        <td>{{ registration.zip_code }}</td>
+        <td>{{ registration.phone_no }}</td>
+        <td>{{ registration.industry }}</td>
+        <td>{{ registration.company_size }}</td>
+        <td>{{ registration.job_title }}</td>
+        <td>{{ registration.department }}</td>
+
+        <td>  
+            <a href="/edit/{{ registration.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ registration.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/regis" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html> 
